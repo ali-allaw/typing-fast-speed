@@ -68,6 +68,7 @@ let results = document.querySelector(".finish")
 // Setting total
 total.innerHTML = words.length
 
+//select function
 select.onchange = function () {
     if (this.value === "Easy") {
         let myavg = avrgSeconds.innerHTML = 10
@@ -144,6 +145,7 @@ function timer() {
         }
     }, 1000); 
 }
+
 
 // disable paste, copy and cut  events
 input.onpaste = function () {
