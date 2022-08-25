@@ -13,11 +13,10 @@
 ---- [09] Add The Error And Success Messages
 [04] Features I Want To Add
 ---- [01] Save Score To Local Storage With Date
----- [02] Choose Levels From Select Box
----- [03] Break The Logic To More Functions
----- [04] Choose Array Of Words For Every Level
----- [05] Write Game Instruction With Dynamic Values
----- [06] Add 3 Seconds For The First Word
+---- [02] Choose Levels From Select Box // done
+---- [03] Choose Array Of Words For Every Level
+---- [04] Write Game Instruction With Dynamic Values
+---- [05] Add 3 Seconds For The First Word
 */
 
 // array of words
@@ -54,19 +53,9 @@ let words = [
     "Playing"  
 ];
 
-//set levels
-let lvls = {
-    "Easy": 10, 
-    "Medium": 6,
-    "Hard": 3
-};
-
-let defaultLevelName = "Medium";
-let defaultLevelSeconds = lvls[defaultLevelName];
-
 // catch selectors
 let startBtn = document.querySelector(".start");
-let levels = document.querySelector(".message .lvl")
+let select = document.querySelector(".message .select")
 let theWord = document.querySelector(".the-word")
 let avrgSeconds = document.querySelector(".message .seconds")
 let upcoming = document.querySelector(".upcoming-words");
@@ -76,11 +65,21 @@ let total = document.querySelector(".total")
 let input = document.querySelector(".input");
 let results = document.querySelector(".finish")
 
-// Setting level Name + Seconds + Score
-levels.innerHTML = defaultLevelName
-avrgSeconds.innerHTML = defaultLevelSeconds
-countDown.innerHTML = defaultLevelSeconds
+// Setting total
 total.innerHTML = words.length
+
+select.onchange = function () {
+    if (this.value === "Easy") {
+        let myavg = avrgSeconds.innerHTML = 10
+        countDown.innerHTML = myavg
+    } else if (this.value === "Medium") {
+        let myavg = avrgSeconds.innerHTML = 5
+        countDown.innerHTML = myavg
+    } else {
+        let myavg = avrgSeconds.innerHTML = 3
+        countDown.innerHTML = myavg
+    }
+}
 
 // start game
 startBtn.onclick = function () {
@@ -89,8 +88,6 @@ startBtn.onclick = function () {
     //generate random-word
     generate()
 };
-
-
 
 // generate function
 function generate() {
@@ -117,7 +114,7 @@ function generate() {
 
 // timer function
 function timer() {
-    countDown.innerHTML = defaultLevelSeconds
+    countDown.innerHTML = avrgSeconds.innerHTML
     let counter = setInterval(() => {
         countDown.innerHTML--;
         if (countDown.innerHTML <= 0) {

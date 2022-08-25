@@ -110,3 +110,15 @@ body {
 .finish .bad {
     color: red;
 }
+.message select {
+    background-color: #009688;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.message select:focus {
+    outline: none;
+}
