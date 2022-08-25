@@ -11,7 +11,7 @@
 ---- [07] Start Play Function
 ---- [08] Start The Time And Count Score
 ---- [09] Add The Error And Success Messages
-[04] Your Trainings To Add Features
+[04] Features I Want To Add
 ---- [01] Save Score To Local Storage With Date
 ---- [02] Choose Levels From Select Box
 ---- [03] Break The Logic To More Functions
@@ -86,19 +86,8 @@ total.innerHTML = words.length
 startBtn.onclick = function () {
     this.remove()
     input.focus();
-
-    //countdown timer
-    // timer(countDown)
-
     //generate random-word
     generate()
-    
-    // score function
-    input.oninput = function () {
-        if (input.value === theWord.innerHTML) {
-            theWord.innerHTML = "";
-        }
-    };
 };
 
 
@@ -122,6 +111,7 @@ function generate() {
         div.appendChild(text);
         upcoming.appendChild(div);
     }
+    //timer
     timer()
 }
 
